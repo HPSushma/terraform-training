@@ -1,4 +1,11 @@
-resource "aws_instance" "myec2" {
-   ami = "ami-0be2609ba883822ec"
-   instance_type = "t2.micro"
+terraform {
+  required_version ="~> 0.12.0"
+
+  backend "remote" {}
+}
+
+
+resource "aws_iam_user" "lb3" {
+   name = "remote-user"
+   path = "/system"
 }
